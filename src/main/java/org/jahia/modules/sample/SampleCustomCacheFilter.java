@@ -53,11 +53,7 @@ public class SampleCustomCacheFilter extends AbstractFilter {
             return super.execute(previousOut, renderContext, resource, chain);
         }
         l.remove(appendCustomKey(resource, renderContext));
-        if (l.size() == 0) {
-            renderContext.getRequest().removeAttribute("module.cache.additional.key");
-        } else {
-            renderContext.getRequest().setAttribute("module.cache.additional.key", l);
-        }
+
         return super.execute(previousOut, renderContext, resource, chain);
     }
 }
